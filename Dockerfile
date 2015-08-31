@@ -6,7 +6,7 @@ RUN groupadd -r mysql && \
 RUN apt-get update && \
     apt-get install -y software-properties-common apt-transport-https && \
     apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db && \
-    add-apt-repository 'deb https://mariadb.cu.be/mariadb-10.0.21/repo/debian sid main' && \
+    add-apt-repository 'deb https://mariadb.cu.be/mariadb-10.0.21/repo/debian jessie main' && \
     apt-get update
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y rsync galera mariadb-galera-server
