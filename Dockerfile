@@ -17,7 +17,3 @@ RUN ln -sf /dev/stderr /var/log/mysql/mariadb-slow.log && \
 COPY entrypoint.sh /
 RUN chmod u+x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
-
-EXPOSE 3306 4444 4567
-
-CMD ["mysqld"]
