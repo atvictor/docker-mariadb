@@ -3,10 +3,8 @@ FROM debian:jessie
 RUN groupadd -r mysql && \
     useradd -r -g mysql mysql -d /var/lib/mysql -s /bin/false
 
-RUN apt-get update && \
-    apt-get install -y software-properties-common apt-transport-https && \
-    apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db && \
-    add-apt-repository 'deb https://mariadb.cu.be/mariadb-10.0.21/repo/debian jessie main' && \
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0xcbcb082a1bb943db && \
+    echo "deb http://ftp.igh.cnrs.fr/pub/mariadb/repo/10.0/debian jessie main" >> /etc/apt/sources.list && \
     apt-get update
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y rsync galera mariadb-galera-server
